@@ -30,7 +30,7 @@ capture = () => {
   const formData = new FormData()
   formData.append('image', imageSrc)
   formData.append('user', this.state.value)
-  axios.post('http://localhost:5000', formData)
+  axios.post('https://tranquil-beyond-31720.herokuapp.com', formData)
   .then(result => {
     this.renderReponse(result);
   })
