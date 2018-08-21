@@ -14,7 +14,6 @@ class Main extends Component {
     return (
         <HashRouter>
         <div>
-          <h1>Facial biometrics</h1>
           <ul className="header">
             <li><NavLink exact to="/">Home</NavLink></li>
             <li><NavLink to="/App">Register</NavLink></li>
