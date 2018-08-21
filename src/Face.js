@@ -27,7 +27,7 @@ capture = () => {
   this.setState({loading:true})
   const formData = new FormData()
   formData.append('image', imageSrc)
-  axios.post('https://tranquil-beyond-31720.herokuapp.com/face', formData)
+  axios.post('https://www.fedhackbackend.net/face', formData)
   .then(result => {
     this.renderReponse(result);
     this.setState({loading:false})
