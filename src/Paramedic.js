@@ -70,7 +70,7 @@ capture = () => {
     return (
       <div className="Paramedic">
         <div className="card">
-          <h5 className="card-header red-bg">Recognise Patient</h5>
+          <h5 className="card-header bg-danger">Recognise Patient</h5>
           <div id="paramedic-card-body" className="card-body text-center">
             <Webcam
               className="center"
@@ -81,7 +81,7 @@ capture = () => {
               screenshotFormat="image/jpeg"
               videoConstraints={videoConstraints}
             />
-            <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
+            <button className="btn btn-danger btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
             <p className="card-text no-margin">Scan face and access core medical information about the person.</p>
             <div className="loading"> 
               <p>
