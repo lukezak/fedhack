@@ -5,24 +5,28 @@ import {
     NavLink,
     HashRouter
   } from "react-router-dom";
+  import './bootstrap.mod.css';
   import App from "./App";
   import Face from "./Face";
   import Detail from "./Detail";
+  import Help from "./Help";
  
 class Main extends Component {
   render() {
     return (
         <HashRouter>
         <div>
-          <ul className="header">
-            <li><NavLink to="/App">Register</NavLink></li>
-            <li><NavLink to="/Face">Recognise</NavLink></li>
-            <li><NavLink to="/Detail">Detail</NavLink></li>
-          </ul>
           <div className="content">
+            <div className="logo-text">
+              <a href="#/">
+                <h1 className="text-center">BIOMEDIC</h1>
+                <h5 className="text-center">SNAP TO SAVE LIVES</h5>
+              </a>
+            </div>
             <Route exact path="/" component={Face}/>
             <Route path="/App" component={App}/>
             <Route path="/Detail" component={Detail}/>
+            <Route path="/Help" component={Help}/>
           </div>
         </div>
         </HashRouter>

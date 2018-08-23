@@ -13,73 +13,99 @@ class Face extends Component {
   }
 
   setRef(webcam) {
-    this.webcam = webcam;
-}
+      this.webcam = webcam;
+  }
 
-renderReponse = (data) => {
-  this.setState({
-      response: data.response,
-  });
-  console.log(data)
-}
+  renderReponse = (data) => {
+    this.setState({
+        response: data.response,
+    });
+    console.log(data)
+  }
 
-capture = () => {
-  const imageSrc = this.webcam.getScreenshot();
-  this.setState({loading:true})
-  const formData = new FormData()
-  formData.append('image', imageSrc)
-  axios.post('http://172.105.233.84:5000/auth', formData)
-  .then(result => {
-      this.props.history.push({
-        pathname: '/Detail',
-        search: '?id=' + result.data,
+  capture = () => {
+    const imageSrc = this.webcam.getScreenshot();
+    this.setState({loading:true})
+    const formData = new FormData()
+    formData.append('image', imageSrc)
+    axios.post('http://172.105.233.84:5000/auth', formData)
+    .then(result => {
+        this.props.history.push({
+          pathname: '/Detail',
+          search: '?id=' + result.data,
+          })
+      }).catch(error => {
+        console.log(error.response.data)
+        if (error.response.status === 400)
+        {
+          this.renderReponse(error);
+          this.setState({loading:false})
+        }
+        else {
+            this.props.history.push({
+              pathname: '/App'
         })
-    }).catch(error => {
-      console.log(error.response.data)
-      if (error.response.status === 400)
-      {
-        this.renderReponse(error);
-        this.setState({loading:false})
       }
-      else {
-          this.props.history.push({
-            pathname: '/App'
-      })
-    }
-  });
-};
+    });
+  };
 
   render() {
     let content;
+    let spinner;
 
     if (this.state.loading) {
-      content = <span>Verifying...</span>
+      content = ''
+      spinner = <img className="screen-resize" src="click.gif"></img>
     }
     else {
       content = this.state.response.data
+      spinner = <img className="screen-resize" src="camera-box.png"></img>
     }
 
     const videoConstraints = {
       facingMode: "environment"
     };
     return (
-      <div className="App">
-        <Webcam
-                audio={false}
-                height={300}
-                width={295}
-                ref={(event) => this.setRef(event)}
-                screenshotFormat="image/jpeg"
-                videoConstraints={videoConstraints}
-            />
-
-            <button className="btn btn-primary" onClick={this.capture}>Detect</button>
-            <div className="loading">
-              <p>
-              {content}
-              </p>
+      <div>
+        <div className="camera-container">
+          <div className="overlay-camera-box-outer">
+            <div className="overlay-camera-box-middle">
+              <div className="overlay-camera-box-inner">
+                {spinner}
+              </div>
             </div>
+          </div>
+          <div className="underlay overlay-camera-box-outer">
+            <div className="overlay-camera-box-middle">
+              <div className="overlay-camera-box-inner">
+                <img className="screen-resize" src="logo-sm.png"></img>
+              </div>
+            </div>
+          </div>
 
+          <Webcam
+              audio={false}
+              height={300}
+              width={295}
+              ref={(event) => this.setRef(event)}
+              screenshotFormat="image/jpeg"
+              videoConstraints={videoConstraints}
+              />
+          <div className="overlay">
+            <div className="row">
+              <div className="loading">
+                <p className="text-center">
+                  {content}
+                </p>
+              </div>
+            </div>
+            <div className="text-center">
+              <button className="btn btn-primary" onClick={this.capture}>Set My Details</button>
+              &nbsp;
+              <a className="btn btn-primary pull-right" href="#/Help">?</a>
+            </div>       
+          </div>
+        </div>
       </div>
     );
   }
