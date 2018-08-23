@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Webcam from "react-webcam";
+import clickSound from './clickSound.json';
  
 class Face extends Component {
 
@@ -8,7 +9,7 @@ class Face extends Component {
     super(props);
     this.state = {
       loading: false,
-      response: []
+      response: [],
     };
   }
 
@@ -25,6 +26,8 @@ renderReponse = (data) => {
 
 capture = () => {
   const imageSrc = this.webcam.getScreenshot();
+  let audio = new Audio('data:audio/mp3;base64,' + clickSound.base64);
+  audio.play();
   this.setState({loading:true})
   const formData = new FormData()
   formData.append('image', imageSrc)
@@ -63,23 +66,27 @@ capture = () => {
       facingMode: "environment"
     };
     return (
-      <div className="App">
+      <div className="card">
+      <h5 className="card-header">Recognise</h5>
+      <div className="card-body text-center">
+      <p className="card-text no-margin">Scan face and access core medical information about the person.</p>
         <Webcam
+                className="center"
                 audio={false}
-                height={300}
-                width={295}
+                height={325}
+                width={325}
                 ref={(event) => this.setRef(event)}
                 screenshotFormat="image/jpeg"
                 videoConstraints={videoConstraints}
             />
 
-            <button className="btn btn-primary" onClick={this.capture}>Detect</button>
+            <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
             <div className="loading">
               <p>
               {content}
               </p>
             </div>
-
+          </div>
       </div>
     );
   }

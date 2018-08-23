@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Webcam from "react-webcam";
 import './App.css';
+import clickSound from './clickSound.json';
 
 class App extends Component {
 
@@ -26,7 +27,8 @@ setRef(webcam) {
 
 capture = () => {
   const imageSrc = this.webcam.getScreenshot();
-
+  let audio = new Audio('data:audio/mp3;base64,' + clickSound.base64);
+  audio.play();
   const formData = new FormData()
   formData.append('image', imageSrc)
   axios.post('https://www.fedhackbackend.net/register', formData)
@@ -47,7 +49,10 @@ handleChange(event) {
     };
     
     return (
-      <div className="App">
+      <div className="card">
+      <h5 className="card-header">Register</h5>
+      <div className="card-body text-center">
+      <p className="card-text no-margin">Lorem ipsum text need to add stuff here.</p>
         <Webcam
                 audio={false}
                 height={300}
@@ -56,8 +61,9 @@ handleChange(event) {
                 screenshotFormat="image/jpeg"
                 videoConstraints={videoConstraints}
             />
-            <button onClick={this.capture}>Capture</button>
+            <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
             <div><p>{this.state.response.data}</p></div>
+        </div>
       </div>
     );
   }
