@@ -164,6 +164,7 @@ ul.header li a.active {
 .screen-resize {
   width: 70%;
   height: 70%;
+  max-height: 600px;
 }
 
 .screen-resize-full {

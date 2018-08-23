@@ -10,6 +10,7 @@ import {
   import Face from "./Face";
   import Detail from "./Detail";
   import Help from "./Help";
+  import Paramedic from "./Paramedic";
  
 class Main extends Component {
   render() {
@@ -27,6 +28,7 @@ class Main extends Component {
             <Route path="/App" component={App}/>
             <Route path="/Detail" component={Detail}/>
             <Route path="/Help" component={Help}/>
+            <Route path="/Paramedic" component={Paramedic}/>
           </div>
         </div>
         </HashRouter>
