@@ -249,6 +249,14 @@ code { font-family: monospace; }
   padding:0px;
 }
 
+#app-card-body {
+  padding:0px;
+}
+
 .red-bg {
   background-color: red;
+}
+
+.text-white {
+  color: white;
 }

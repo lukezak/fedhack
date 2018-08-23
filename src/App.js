@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       value: 'Name',
-      response: [],
+      response: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -53,12 +53,19 @@ handleChange(event) {
     const videoConstraints = {
       facingMode: "user"
     };
+
+    let warning;
+    if(this.state.response.data && this.state.response.data != '' ) {
+      warning = <div class="alert alert-danger" role="alert">{this.state.response.data}</div>
+    } else {
+      warning = ''
+    }
     
     return (
       <div className="card">
       <h5 className="card-header">Register</h5>
-      <div className="card-body text-center">
-      <p className="card-text no-margin">Lorem ipsum text need to add stuff here.</p>
+      <div id="app-card-body" className="card-body text-center">
+      <p className="card-text no-margin">Take a picture of yourself to register.</p>
         <Webcam
                 audio={false}
                 height={300}
@@ -69,7 +76,7 @@ handleChange(event) {
             />
 
             <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
-            <div><p>{this.state.response.data}</p></div>
+            <div><br/><p>{warning}</p></div>
         </div>
       </div>
     );
