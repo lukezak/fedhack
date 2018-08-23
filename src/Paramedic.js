@@ -70,7 +70,7 @@ capture = () => {
     return (
       <div className="Paramedic">
         <div className="card">
-          <h5 className="card-header">Recognise</h5>
+          <h5 className="card-header red-bg">Recognise Patient</h5>
           <div id="paramedic-card-body" className="card-body text-center">
             <Webcam
               className="center"
@@ -83,7 +83,7 @@ capture = () => {
             />
             <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
             <p className="card-text no-margin">Scan face and access core medical information about the person.</p>
-            <div className="loading">
+            <div className="loading"> 
               <p>
               {content}
               </p>

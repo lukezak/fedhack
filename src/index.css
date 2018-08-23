@@ -248,3 +248,7 @@ code { font-family: monospace; }
 #paramedic-card-body {
   padding:0px;
 }
+
+.red-bg {
+  background-color: red;
+}
