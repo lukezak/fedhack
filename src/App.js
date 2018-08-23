@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'Name',
+      id : this.props.location.search,
       response: [],
     };
     this.handleChange = this.handleChange.bind(this);
@@ -29,7 +29,6 @@ capture = () => {
 
   const formData = new FormData()
   formData.append('image', imageSrc)
-  formData.append('user', this.state.value)
   axios.post('https://www.fedhackbackend.net/register', formData)
   .then(result => {
     this.renderReponse(result);
@@ -37,7 +36,9 @@ capture = () => {
 };
 
 handleChange(event) {
-  this.setState({value: event.target.value});
+  this.setState({
+    value: event.target.value
+  });
 }
 
   render() {
@@ -55,7 +56,6 @@ handleChange(event) {
                 screenshotFormat="image/jpeg"
                 videoConstraints={videoConstraints}
             />
-            <p><input type="text" name="user" value={this.state.value} onChange={this.handleChange} /></p>
             <button onClick={this.capture}>Capture</button>
             <div><p>{this.state.response.data}</p></div>
       </div>

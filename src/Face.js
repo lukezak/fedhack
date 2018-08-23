@@ -7,19 +7,20 @@ class Face extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: [],
-      loading: false
+      loading: false,
+      response: []
     };
   }
 
-renderReponse = (data) => {
-    this.setState({
-        response: data,
-    });
-}
-
   setRef(webcam) {
     this.webcam = webcam;
+}
+
+renderReponse = (data) => {
+  this.setState({
+      response: data.response,
+  });
+  console.log(data)
 }
 
 capture = () => {
@@ -27,11 +28,25 @@ capture = () => {
   this.setState({loading:true})
   const formData = new FormData()
   formData.append('image', imageSrc)
-  axios.post('https://www.fedhackbackend.net/face', formData)
+  axios.post('http://172.105.233.84:5000/auth', formData)
   .then(result => {
-    this.renderReponse(result);
-    this.setState({loading:false})
-  })
+      this.props.history.push({
+        pathname: '/Detail',
+        search: '?id=' + result.data,
+        })
+    }).catch(error => {
+      console.log(error.response.data)
+      if (error.response.status === 400)
+      {
+        this.renderReponse(error);
+        this.setState({loading:false})
+      }
+      else {
+          this.props.history.push({
+            pathname: '/App'
+      })
+    }
+  });
 };
 
   render() {
@@ -45,7 +60,7 @@ capture = () => {
     }
 
     const videoConstraints = {
-      facingMode: "user"
+      facingMode: "environment"
     };
     return (
       <div className="App">
@@ -58,12 +73,13 @@ capture = () => {
                 videoConstraints={videoConstraints}
             />
 
-            <button onClick={this.capture}>Detect</button>
-            <div>
+            <button className="btn btn-primary" onClick={this.capture}>Detect</button>
+            <div className="loading">
               <p>
               {content}
               </p>
             </div>
+
       </div>
     );
   }
