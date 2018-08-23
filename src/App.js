@@ -32,10 +32,17 @@ capture = () => {
   const formData = new FormData()
   formData.append('image', imageSrc)
   formData.append('user', this.state.value)
-  axios.post('https://www.fedhackbackend.net/register', formData)
+  axios.post('http://172.105.233.84:5000/register', formData)
   .then(result => {
     this.renderReponse(result);
-  })
+    this.props.history.push({
+      pathname: '/Detail',
+      search: '?id=' + result.data,
+    })
+  }).catch(error => {
+      console.log(error.response.data)
+      this.renderReponse(error.response);
+  });
 };
 
 handleChange(event) {

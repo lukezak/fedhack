@@ -37,7 +37,19 @@ capture = () => {
       pathname: '/Detail',
       search: '?id=' + result.data,
       })
-    })
+    }).catch(error => {
+        console.log(error.response.data)
+        if (error.response.status === 400)
+        {
+          this.renderReponse(error);
+          this.setState({loading:false})
+        }
+        else {
+            this.props.history.push({
+              pathname: '/App'
+        })
+      }
+    });
   };
 
   render() {

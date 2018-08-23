@@ -26,7 +26,7 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    fetch('https://localhost:3000/api/')
+    fetch('http://172.105.233.84:5000/data/people/')
       .then(response => response.json())
       .then(result => {
         this.setState({ 
