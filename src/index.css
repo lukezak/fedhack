@@ -238,9 +238,6 @@ ul.header li a.active {
 
 .logo-text a:hover {
   text-decoration: none;
-} 
-
-.Help {
 }
 
 code { font-family: monospace; }
@@ -251,4 +248,9 @@ code { font-family: monospace; }
 
 .red-bg {
   background-color: red;
+}
+.help-icon {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
 }

@@ -103,9 +103,9 @@ capture = () => {
               </div>
             </div>
             <div className="text-center">
-              <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
+              <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i className="fas fa-camera"></i></button>
               <br/>
-              <a className="btn btn-primary float-right" href="#/Help">?</a>
+              <a className="help-icon" href="#/Help"><i className="fas fa-3x fa-info-circle"></i></a>
             </div>       
           </div>
         </div>
