@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Webcam from "react-webcam";
 import clickSound from './clickSound.json';
+import settings from './settings.json'
  
 class Face extends Component {
 
@@ -31,7 +32,7 @@ capture = () => {
   this.setState({loading:true})
   const formData = new FormData()
   formData.append('image', imageSrc)
-  axios.post('https://www.fedhackbackend.net/auth', formData)
+  axios.post(settings.server + '/auth', formData)
   .then(result => {
     this.props.history.push({
       pathname: '/Detail/' + result.data,

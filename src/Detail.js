@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import $ from 'jquery';
+import settings from './settings.json'
 
 class Detail extends Component {
 
@@ -33,7 +34,7 @@ class Detail extends Component {
 
   componentDidMount() {
     let id=this.props.match.params.id
-    axios.get('http://172.105.233.84:5000/data/people/' + id)
+    axios.get(settings.server + '/data/people/' + id)
       .then(result => {
         console.log("result.bloodType:"+result.data.bloodType)
         this.setState(result.data);
@@ -68,7 +69,7 @@ class Detail extends Component {
     let data = this.state
     delete data.response
     if(this.isNew){
-      axios.post('http://172.105.233.84:5000/data/people/', data)
+      axios.post(settings.server + '/data/people/', data)
       .then(result => {
         console.log(result)
       })
@@ -81,7 +82,7 @@ class Detail extends Component {
       delete data._updated
       $.ajax({
           type: "PATCH",
-          url: 'http://172.105.233.84:5000/data/people/' + data._id,
+          url: settings.server + '/data/people/' + data._id,
           crossDomain: true,
           dataType: 'json',
           data: data,
@@ -89,19 +90,6 @@ class Detail extends Component {
             'If-Match':this.etag
           }
       });
-      // axios.patch(
-      //   'http://172.105.233.84:5000/data/people/' + data._id, 
-      //   data, 
-      //   {
-      //     method: "PATCH",
-      //     headers:{
-      //       'If-Match':this.etag,
-      //       'Content-Type': 'application/json',
-      //       'Access-Control-Allow-Origin': '*'
-      //     }
-      //   }).then(result => {
-      //     console.log(result)
-      //   })
     }
   }
 

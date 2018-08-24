@@ -3,6 +3,7 @@ import axios from 'axios';
 import Webcam from "react-webcam";
 import './App.css';
 import clickSound from './clickSound.json';
+import settings from './settings.json'
 
 class App extends Component {
 
@@ -32,7 +33,7 @@ capture = () => {
   const formData = new FormData()
   formData.append('image', imageSrc)
   formData.append('user', this.state.value)
-  axios.post('http://172.105.233.84:5000/register', formData)
+  axios.post(settings.server + '/register', formData)
   .then(result => {
     this.renderReponse(result);
     this.props.history.push({
