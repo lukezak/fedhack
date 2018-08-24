@@ -37,7 +37,7 @@ capture = () => {
   axios.post(settings.server + '/auth', formData)
   .then(result => {
       this.props.history.push({
-        pathname: '/Detail/' + result.data,
+        pathname: '/ParamedicDetail/' + result.data,
         })
     }).catch(error => {
       console.log(error.response.data)

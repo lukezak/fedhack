@@ -99,39 +99,6 @@ class Detail extends Component {
     <h5 className="card-header">Details</h5>
     <div className="card-body">
     <form onSubmit={this.handleSubmit}>
-    <h5 className="card-title bg-green">Personal</h5>
-        <div className="form-group">
-          <label htmlFor="firstName">First name</label>
-          <input type="text" className="form-control" id="firstName" name="firstName" placeholder="Enter your first name" value={this.state.firstName} onChange={this.handleChange} />
-        </div>
-      <div className="form-group">
-        <label htmlFor="lastName">Last name</label>
-        <input type="text" className="form-control" id="lastName" name="lastName" placeholder="Enter your last name" value={this.state.lastName} onChange={this.handleChange} />
-      </div>
-      <div className="form-group">
-      <label htmlFor="dateOfBirth">Date of birth</label>
-        <input type="text" className="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="Enter your date of birth" value={this.state.dateOfBirth} onChange={this.handleChange} />
-      </div>
-      <div className="form-group">
-      <label htmlFor="occupation">Occupation</label>
-        <input type="text" className="form-control" id="occupation" name="occupation" placeholder="Enter your occupation" value={this.state.occupation} onChange={this.handleChange} />
-      </div>
-      <div className="form-group">
-      <label htmlFor="address">Address</label>
-        <input type="text" className="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="Enter your address" value={this.state.value} onChange={this.handleChange} />
-      </div>
-      <div className="form-group">
-      <label htmlFor="homePhone">Home phone</label>
-        <input type="text" className="form-control" id="homePhone" name="homePhone" placeholder="Enter your home phone" value={this.state.homePhone} onChange={this.handleChange} />
-      </div>
-      <div className="form-group">
-      <label htmlFor="nextOfKinName">Next of Kin</label>
-        <input type="text" className="form-control" id="nextOfKinName" name="nextOfKinName" placeholder="Enter your Next of Kin" value={this.state.nextOfKinName} onChange={this.handleChange} />
-      </div>
-      <div className="form-group">
-      <label htmlFor="nextOfKinPhone">Next of Kin phone</label>
-        <input type="text" className="form-control" id="nextOfKinPhone" name="nextOfKinPhone" placeholder="Enter your Next of Kin phone" value={this.state.nextOfKinPhone} onChange={this.handleChange} />
-      </div>
       <h5 className="card-title bg-green">Medical</h5>
       <div className="form-group">
         <label htmlFor="bloodType">Blood type</label>
@@ -165,6 +132,40 @@ class Detail extends Component {
       <div className="form-group">
       <label htmlFor="familyHistory">Family history</label>
         <input type="text" className="form-control" id="familyHistory" name="familyHistory" placeholder="Enter your family history" value={this.state.familyHistory} onChange={this.handleChange} />
+      </div>
+
+    <h5 className="card-title bg-green">Personal</h5>
+        <div className="form-group">
+          <label htmlFor="firstName">First name</label>
+          <input type="text" className="form-control" id="firstName" name="firstName" placeholder="Enter your first name" value={this.state.firstName} onChange={this.handleChange} />
+        </div>
+      <div className="form-group">
+        <label htmlFor="lastName">Last name</label>
+        <input type="text" className="form-control" id="lastName" name="lastName" placeholder="Enter your last name" value={this.state.lastName} onChange={this.handleChange} />
+      </div>
+      <div className="form-group">
+      <label htmlFor="dateOfBirth">Date of birth</label>
+        <input type="text" className="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="Enter your date of birth" value={this.state.dateOfBirth} onChange={this.handleChange} />
+      </div>
+      <div className="form-group">
+      <label htmlFor="occupation">Occupation</label>
+        <input type="text" className="form-control" id="occupation" name="occupation" placeholder="Enter your occupation" value={this.state.occupation} onChange={this.handleChange} />
+      </div>
+      <div className="form-group">
+      <label htmlFor="address">Address</label>
+        <input type="text" className="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="Enter your address" value={this.state.value} onChange={this.handleChange} />
+      </div>
+      <div className="form-group">
+      <label htmlFor="homePhone">Home phone</label>
+        <input type="text" className="form-control" id="homePhone" name="homePhone" placeholder="Enter your home phone" value={this.state.homePhone} onChange={this.handleChange} />
+      </div>
+      <div className="form-group">
+      <label htmlFor="nextOfKinName">Next of Kin</label>
+        <input type="text" className="form-control" id="nextOfKinName" name="nextOfKinName" placeholder="Enter your Next of Kin" value={this.state.nextOfKinName} onChange={this.handleChange} />
+      </div>
+      <div className="form-group">
+      <label htmlFor="nextOfKinPhone">Next of Kin phone</label>
+        <input type="text" className="form-control" id="nextOfKinPhone" name="nextOfKinPhone" placeholder="Enter your Next of Kin phone" value={this.state.nextOfKinPhone} onChange={this.handleChange} />
       </div>
       <button type="submit" className="btn btn-success">Save</button> 
     </form>

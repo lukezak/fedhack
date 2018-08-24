@@ -16,6 +16,7 @@ import {
   import Detail from "./Detail";
   import Help from "./Help";
   import Paramedic from "./Paramedic";
+  import ParamedicDetail from "./ParamedicDetail";
  
 class Main extends Component {
   render() {
@@ -43,6 +44,7 @@ class Main extends Component {
             <Route path="/Detail/:id" component={Detail}/>
             <Route path="/Help" component={Help}/>
             <Route path="/Paramedic" component={Paramedic}/>
+            <Route path="/ParamedicDetail/:id" component={ParamedicDetail}/>
           </div>
         </div>
       </HashRouter>
