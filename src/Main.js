@@ -40,7 +40,7 @@ class Main extends Component {
           <div className="content">
             <Route exact path="/" component={Face}/>
             <Route path="/App" component={App}/>
-            <Route path="/Detail" component={Detail}/>
+            <Route path="/Detail/:id" component={Detail}/>
             <Route path="/Help" component={Help}/>
             <Route path="/Paramedic" component={Paramedic}/>
           </div>

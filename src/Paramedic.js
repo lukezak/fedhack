@@ -36,8 +36,7 @@ capture = () => {
   axios.post('http://172.105.233.84:5000/auth', formData)
   .then(result => {
       this.props.history.push({
-        pathname: '/Detail',
-        search: '?id=' + result.data,
+        pathname: '/Detail/' + result.data,
         })
     }).catch(error => {
       console.log(error.response.data)
@@ -81,7 +80,7 @@ capture = () => {
               screenshotFormat="image/jpeg"
               videoConstraints={videoConstraints}
             />
-            <button className="btn btn-danger btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
+            <button className="btn btn-danger btn-circle btn-xl" onClick={this.capture}><i className="fas fa-camera"></i></button>
             <p className="card-text no-margin">Scan face and access core medical information about the person.</p>
             <div className="loading"> 
               <p>

@@ -34,8 +34,7 @@ capture = () => {
   axios.post('http://172.105.233.84:5000/auth', formData)
   .then(result => {
     this.props.history.push({
-      pathname: '/Detail',
-      search: '?id=' + result.data,
+      pathname: '/Detail/' + result.data,
       })
     }).catch(error => {
         console.log(error.response.data)

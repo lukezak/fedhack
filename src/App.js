@@ -36,8 +36,7 @@ capture = () => {
   .then(result => {
     this.renderReponse(result);
     this.props.history.push({
-      pathname: '/Detail',
-      search: '?id=' + result.data,
+      pathname: '/Detail/' + result.data,
     })
   }).catch(error => {
       console.log(error.response.data)
@@ -56,7 +55,7 @@ handleChange(event) {
 
     let warning;
     if(this.state.response.data && this.state.response.data != '' ) {
-      warning = <div class="alert alert-danger" role="alert">{this.state.response.data}</div>
+      warning = <div className="alert alert-danger" role="alert">{this.state.response.data}</div>
     } else {
       warning = ''
     }
@@ -75,8 +74,8 @@ handleChange(event) {
                 videoConstraints={videoConstraints}
             />
 
-            <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i class="fas fa-camera"></i></button>
-            <div><br/><p>{warning}</p></div>
+            <button className="btn btn-success btn-circle btn-xl" onClick={this.capture}><i className="fas fa-camera"></i></button>
+            <div><br/>{warning}</div>
         </div>
       </div>
     );
