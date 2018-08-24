@@ -31,7 +31,7 @@ capture = () => {
   this.setState({loading:true})
   const formData = new FormData()
   formData.append('image', imageSrc)
-  axios.post('http://172.105.233.84:5000/auth', formData)
+  axios.post('https://www.fedhackbackend.net/auth', formData)
   .then(result => {
     this.props.history.push({
       pathname: '/Detail/' + result.data,
@@ -65,7 +65,7 @@ capture = () => {
     }
 
     const videoConstraints = {
-      facingMode: "environment"
+      facingMode: "user"
     };
     return (
       <div>
