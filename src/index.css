@@ -246,6 +246,10 @@ code { font-family: monospace; }
   padding:0px;
 }
 
+#app-card-body {
+  padding:0px;
+}
+
 .red-bg {
   background-color: red;
 }
@@ -253,4 +257,8 @@ code { font-family: monospace; }
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
+}
+
+.text-white {
+  color: white;
 }
