@@ -1,6 +1,6 @@
 # Hackathon : BioMedic UI
 
-Simple React front end for fedhack (AKA BioMedic). Provides UI to register, authN and retrieve patient details.
+Simple React front end for fedhack (AKA BioMedic). Provides UI to register, authN and retrieve patient details. Uses [fedhack-backend](https://github.com/lukezak/fedhack-backend) backend.
 
 ## Setup
 
